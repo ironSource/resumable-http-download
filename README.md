@@ -10,7 +10,7 @@
 With [npm](https://npmjs.org) do:
 
 ```
-npm install resumable-http-download
+npm install @ironsource/rhd
 ```
 
 ## license

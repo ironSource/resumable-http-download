@@ -1,14 +1,14 @@
 {
-  "name": "@ironsource/resumable-http-download",
+  "name": "@ironsource/rhd",
   "version": "0.0.1",
   "description": "resumable http download(er)",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": {
     "name": "Yaniv Kessler",
     "email": "yaniv@ironsrc.com"
   },
   "scripts": {
-    "test": "mocha test/**/*.js"
+    "test": "mocha test.js"
   },
   "dependencies": {
     "@ironsource/parse-content-range-header": "0.0.4",
