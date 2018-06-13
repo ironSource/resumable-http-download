@@ -10,18 +10,22 @@ const START_POSITION = 0
  *    @param  {[type]}
  *    @return {[type]}
  */
-async function download({ url, headers = new Map(), store = new MemoryStore() }) {
+async function download({ url, headers = new Map(), store = new MemoryStore(), throwErrors = false }) {
 	let state = await store.get('state')
 	state = state || 'start'
 
 	debug(`starting download from state "${state}"`)
-	
+
 	let action = getAction(state)
 
 	let nextState
 	try {
 		nextState = await action({ url, headers: new Map(headers), store })
 	} catch (e) {
+		if (throwErrors) {
+			throw e
+		}
+
 		debug('error:', e)
 		nextState = 'error'
 	}
@@ -89,9 +93,20 @@ async function downloadEnd({ store }) {
 }
 
 // TODO change to exponential backoff
-async function downloadError() {
+async function downloadError({ store }) {
+	let nextState
+	let range = await store.get('range')
+	
+	if (!range) {
+		nextState = 'start'
+	} else if (range.start === 0) {
+		nextState = 'start'
+	} else {
+		nextState = 'progress'
+	}
+
 	return new Promise((resolve, reject) => {
-		setTimeout(() => resolve('progress'), 1000)
+		setTimeout(() => resolve(nextState), 1000)
 	})
 }
 
