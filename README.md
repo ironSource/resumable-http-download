@@ -15,4 +15,4 @@ npm install resumable-http-download
 
 ## license
 
-[UNLICENSED](http://opensource.org/licenses/UNLICENSED) © ironsource ltd.
+[MIT](http://opensource.org/licenses/MIT) © ironSource ltd
