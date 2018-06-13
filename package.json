@@ -1,0 +1,30 @@
+{
+  "name": "@ironsource/resumable-http-download",
+  "version": "0.0.1",
+  "description": "resumable http download(er)",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Yaniv Kessler",
+    "email": "yaniv@ironsrc.com"
+  },
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "dependencies": {
+    "@ironsource/parse-content-range-header": "0.0.4",
+    "r2": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "keywords": [
+    "download",
+    "http",
+    "resume"
+  ],
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=2.0.0"
+  }
+}
